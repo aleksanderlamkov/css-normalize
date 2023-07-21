@@ -1,0 +1,24 @@
+{
+  "name": "@a1rth/css-normalize",
+  "version": "1.0.0",
+  "description": "Modern CSS normalize",
+  "main": "index.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksanderlamkov/css-normalize.git"
+  },
+  "keywords": [
+    "css",
+    "normalize",
+    "reset"
+  ],
+  "author": "Aleksander Lamkov (https://aleksanderlamkov.ru/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleksanderlamkov/css-normalize/issues"
+  },
+  "homepage": "https://github.com/aleksanderlamkov/css-normalize#readme"
+}

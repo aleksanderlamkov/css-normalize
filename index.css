@@ -1,0 +1,103 @@
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева
+  всем тегам списков,
+  у которых есть класс
+ */
+ul[class],
+ol[class] {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и нужным тегам,
+  у которых есть класс
+ */
+body,
+blockquote[class],
+figure[class] {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть класс
+ */
+h1[class],
+h2[class],
+h3[class],
+h4[class],
+h5[class],
+h6[class],
+p[class],
+ul[class],
+ol[class],
+dl[class] {
+  margin-block: 0;
+}
+
+dd[class] {
+  margin-left: 0;
+}
+
+/**
+  Убираем стандартный маркер
+  у маркированных списков,
+  у которых заполнен класс
+ */
+ul[class] {
+  list-style: none;
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/**
+  Пригодится в большинстве ситуаций
+  (когда, например, нужно будет "прижать" футер к низу сайта)
+ */
+html,
+body {
+  min-height: 100%;
+}
+
+/**
+  Добавляем плавный скролл и унифицированный средний интерлиньяж
+ */
+body {
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
