@@ -9,10 +9,10 @@
 
 /**
   Убираем внутренние отступы слева
-  всем тегам списков
+  всем тегам списков,
+  у которых есть атрибут class
  */
-ul,
-ol {
+:where(ul, ol):where([class]) {
   padding-left: 0;
 }
 
@@ -20,28 +20,29 @@ ol {
   Убираем внешние отступы body и другим нужным тегам,
  */
 body,
-blockquote,
-figure {
+:where(blockquote, figure):where([class]) {
   margin: 0;
 }
 
 /**
   Убираем внешние отступы вертикали нужным тегам
  */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-dl {
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
   margin-block: 0;
 }
 
-dd {
+:where(dd[class]) {
   margin-left: 0;
 }
 
@@ -49,7 +50,7 @@ dd {
   Убираем стандартный маркер
   у маркированных списков
  */
-ul {
+:where(ul[class]) {
   list-style: none;
 }
 
@@ -70,7 +71,6 @@ select,
 button {
   font: inherit;
 }
-
 
 html {
   /**
