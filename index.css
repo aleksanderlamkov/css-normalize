@@ -47,6 +47,12 @@ body,
   margin-left: 0;
 }
 
+:where(dd[legend]) {
+  margin-left: 9px;
+  padding: 0;
+  border: none;
+}
+
 /**
   Убираем стандартный маркер маркированному списку,
   у которого есть атрибут class
