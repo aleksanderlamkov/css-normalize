@@ -47,7 +47,7 @@ body,
   margin-left: 0;
 }
 
-:where(dd[legend]) {
+:where(fieldset[class]) {
   margin-left: 0;
   padding: 0;
   border: none;
