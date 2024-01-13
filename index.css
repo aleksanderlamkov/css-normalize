@@ -48,7 +48,7 @@ body,
 }
 
 :where(dd[legend]) {
-  margin-left: 9px;
+  margin-left: 0;
   padding: 0;
   border: none;
 }
