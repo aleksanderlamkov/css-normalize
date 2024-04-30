@@ -110,6 +110,7 @@ html {
 /**
   Плавный скролл
  */
+html,
 :has(:target) {
   scroll-behavior: smooth;
 }
