@@ -2,8 +2,8 @@
   Нормализация блочной модели
  */
 *,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: border-box;
 }
 
