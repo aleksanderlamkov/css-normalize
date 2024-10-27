@@ -145,6 +145,14 @@ a:where([class]) {
 }
 
 /**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
   Приводим к единому цвету svg-элементы
  */
 [fill] { fill: currentColor }
