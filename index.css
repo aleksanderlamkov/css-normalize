@@ -132,11 +132,13 @@ body {
   line-height: 1.5;
 }
 
+
+
 /**
   Приводим к единому цвету svg-элементы
  */
-svg *[fill] { fill: currentColor }
-svg *[stroke] { stroke: currentColor }
+[fill] { fill: currentColor }
+[stroke] { stroke: currentColor }
 
 /**
   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
