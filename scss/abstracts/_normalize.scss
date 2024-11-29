@@ -1,0 +1,247 @@
+/*  normalize */
+
+
+// Нормализация блочной модели
+%box-sizing {
+  box-sizing: border-box;
+}
+
+// Плавный скролл
+%scroll-behavior {
+  scroll-behavior: smooth;
+}
+
+%mh-100 {
+  min-height: 100%;
+}
+
+//  Упрощаем работу с изображениями
+%img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+%margin-block-0 {
+  margin-block: 0;
+}
+
+%margin-inline-0 {
+  margin-inline: 0;
+}
+
+
+html {
+  @extend %box-sizing;
+  @extend %scroll-behavior;
+
+  // Пригодится в большинстве ситуаций
+  // (когда, например, нужно будет "прижать" футер к низу сайта)
+  @extend %mh-100;
+
+  // Убираем скачок интерфейса по горизонтали
+  // при появлении / исчезновении скроллбара
+  scrollbar-gutter: stable;
+}
+
+
+body {
+  @extend %box-sizing;
+
+  // Пригодится в большинстве ситуаций (когда, например, нужно будет "прижать" футер к низу сайта) 
+  @extend %mh-100;
+  @extend %margin-block-0;
+  @extend %margin-inline-0;
+  
+  // Унифицированны размеры
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
+  font-family: var(--body-font-family);
+  font-weight: var(--body-font-weight);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Общие стили для всех заголовков 
+%heading {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
+
+  :where(&):where([class]) {
+    margin-block: 0;
+  }
+}
+h1 {
+  @extend %heading;
+  font-size: var(--h1-font-size);
+
+}
+
+h2 {
+  @extend %heading;
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  @extend %heading;
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+    @extend %heading;
+   font-size: var(--h4-font-size);
+}
+
+h5 {
+    @extend %heading;
+   font-size: var(--h5-font-size);
+}
+
+h6 {
+    @extend %heading;
+   font-size: var(--h6-font-size);
+}
+
+
+// Убираем внутренние отступы слева тегам списков,
+// у которых есть атрибут class
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+
+// Убираем внешние отступы тегам у которых есть атрибут class 
+:where(blockquote, figure):where([class]) {
+  @extend %margin-block-0;
+  @extend %margin-inline-0;
+
+}
+
+
+// Убираем внешние отступы вертикали нужным тегам,
+// у которых есть атрибут class
+:where(
+  p,
+  ul,
+  ol,
+  dl):where([class]) {
+  @extend %margin-block-0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+
+// Убираем стандартный маркер маркированному списку,
+// у которого есть атрибут class
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+
+// Обнуляем вертикальные внешние отступы параграфа,
+// объявляем локальную переменную для внешнего отступа вниз,
+// чтобы избежать взаимодействие с более сложным селектором 
+p {
+  --paragraphMarginBottom: #{$PARAGRAPH_MARGIN_BOTTOM};
+
+  @extend %margin-block-0;
+
+  // Внешний отступ вниз для параграфа без атрибута class,
+  // который расположен не последним среди своих соседних элементов 
+  &:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+  }
+}
+
+
+// Упрощаем работу с изображениями и видео 
+img,
+video {
+  @extend %img;
+}
+
+svg {
+  @extend %img;
+
+  // Чиним баг задержки смены цвета при взаимодействии с svg-элементами 
+  * {
+    transition-property: fill, stroke;
+  }
+
+  // Приводим к единому цвету svg-элементы
+  [fill] {
+    fill: currentColor
+  }
+
+  [stroke] {
+    stroke: currentColor
+  }
+}
+
+// Наследуем свойства шрифт для полей ввода 
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+
+// Нормализация высоты элемента ссылки при его инспектировании в DevTools
+
+a:where([class]) {
+  display: inline-flex;
+}
+
+
+// Курсор-рука при наведении на элемент
+
+button,
+label {
+  cursor: pointer;
+}
+
+// Приведение рамок таблиц в классический 'collapse' вид
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+// Плавный скролл
+:has(:target) {
+  @extend %scroll-behavior;
+}
+
+// Удаляем все анимации и переходы для людей,
+// которые предпочитают их не использовать 
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,175 @@
+/*  variables   */
+:root {
+  --body-text-color: #121212;
+  --body-bg-color: #fefefe;
+  --body-font-family: "Onest", sans-serif;
+  --body-font-weight: 400;
+  --body-font-size: 1rem;
+  --body-line-height: 1.5;
+  --heading-font-family: "Druk-Cyr", sans-serif;
+  --heading-font-weight: 900;
+  --heading-line-height: 1.2;
+  --h1-font-size: clamp(2.5rem, 1.667rem + 3.71vw, 5rem);
+  --h2-font-size: clamp(1.5rem, 1rem + 2.23vw, 3rem);
+  --h3-font-size: clamp(1.125rem, 1rem + 0.56vw, 1.5rem);
+  --h4-font-size: 1.5rem;
+  --h5-font-size: 1.25rem;
+  --h6-font-size: 1rem;
+}
+
+/*  normalize */
+body, html {
+  box-sizing: border-box;
+}
+
+:has(:target), html {
+  scroll-behavior: smooth;
+}
+
+body, html {
+  min-height: 100%;
+}
+
+svg, img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p, :where(p,
+ul,
+ol,
+dl):where([class]), :where(blockquote, figure):where([class]), body {
+  margin-block: 0;
+}
+
+:where(blockquote, figure):where([class]), body {
+  margin-inline: 0;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
+  font-family: var(--body-font-family);
+  font-weight: var(--body-font-weight);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h6, h5, h4, h3, h2, h1 {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
+}
+:where(h6, h5, h4, h3, h2, h1):where([class]) {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+p {
+  --paragraphMarginBottom: 1.5rem;
+}
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+svg * {
+  transition-property: fill, stroke;
+}
+svg [fill] {
+  fill: currentColor;
+}
+svg [stroke] {
+  stroke: currentColor;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+a:where([class]) {
+  display: inline-flex;
+}
+
+button,
+label {
+  cursor: pointer;
+}
+
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/*  buttons */
+/* header */
+/*  footer  *//*# sourceMappingURL=main.css.map */

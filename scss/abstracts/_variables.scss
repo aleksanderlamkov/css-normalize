@@ -1,0 +1,40 @@
+/*  variables   */
+
+// НЕ УДАЛЯТЬ используются в "_functions.scss" 
+// для расчета  toRem() и clamp1($min, $max) 
+$BASE_FONT_SIZE: 16;
+
+$VIEWPORT-MAX: 1440;
+$VIEWPORT-MIN: 360;
+
+// Внешний отступ вниз для параграфа без атрибута class,
+// который расположен не последним среди своих соседних элементов 
+$PARAGRAPH_MARGIN_BOTTOM: toRem(24);
+
+
+%normalize-root {
+
+    --body-text-color: #121212;
+    --body-bg-color: #fefefe;
+    --body-font-family: 'Onest', sans-serif;
+    --body-font-weight: 400;
+    --body-font-size: #{toRem(16)};
+    --body-line-height: 1.5;
+
+    // Общие стили для всех заголовков 
+    --heading-font-family: 'Druk-Cyr', sans-serif;
+    --heading-font-weight: 900;
+    --heading-line-height: 1.2;
+
+    // Размеры заголовков h1-h6  
+    --h1-font-size: #{clamp1(40, 80)};
+    --h2-font-size: #{clamp1(24, 48)};
+    --h3-font-size: #{clamp1(18, 24)};
+    --h4-font-size: #{toRem(24)};
+    --h5-font-size: #{toRem(20)};
+    --h6-font-size: #{toRem(16)};
+}
+
+:root {
+    @extend %normalize-root
+}
