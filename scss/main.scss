@@ -1,17 +1,15 @@
-@import 
+@import
     'abstracts/functions',
     'abstracts/mixins',
     'abstracts/variables',
+    'abstracts/placeholders',
     'abstracts/normalize';
 
-@import
-    'components/buttons';
+@import 'components/buttons';
 
 @import
     'layout/header',
     'layout/footer';
 
-
 // Файл для эксперементов и костылей
-@import 
-    'components/shame';
+@import 'components/shame';

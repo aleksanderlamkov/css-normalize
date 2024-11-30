@@ -1,6 +1,3 @@
-/*  normalize */
-
-
 // Нормализация блочной модели
 %box-sizing {
   box-sizing: border-box;
@@ -11,9 +8,6 @@
   scroll-behavior: smooth;
 }
 
-%mh-100 {
-  min-height: 100%;
-}
 
 //  Упрощаем работу с изображениями
 %img {
@@ -22,22 +16,22 @@
   height: auto;
 }
 
-%margin-block-0 {
-  margin-block: 0;
+// Нормализация блочной модели
+html,
+body {
+  min-height: 100%;
+  box-sizing: border-box;
 }
 
-%margin-inline-0 {
-  margin-inline: 0;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
-
 
 html {
-  @extend %box-sizing;
   @extend %scroll-behavior;
 
-  // Пригодится в большинстве ситуаций
-  // (когда, например, нужно будет "прижать" футер к низу сайта)
-  @extend %mh-100;
 
   // Убираем скачок интерфейса по горизонтали
   // при появлении / исчезновении скроллбара
@@ -46,13 +40,10 @@ html {
 
 
 body {
-  @extend %box-sizing;
 
-  // Пригодится в большинстве ситуаций (когда, например, нужно будет "прижать" футер к низу сайта) 
-  @extend %mh-100;
   @extend %margin-block-0;
   @extend %margin-inline-0;
-  
+
   // Унифицированны размеры
   background-color: var(--body-bg-color);
   color: var(--body-text-color);
@@ -61,12 +52,6 @@ body {
   font-size: var(--body-font-size);
   line-height: var(--body-line-height);
 
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
 }
 
 // Общие стили для всех заголовков 
@@ -79,6 +64,7 @@ body {
     margin-block: 0;
   }
 }
+
 h1 {
   @extend %heading;
   font-size: var(--h1-font-size);
@@ -96,18 +82,33 @@ h3 {
 }
 
 h4 {
-    @extend %heading;
-   font-size: var(--h4-font-size);
+  @extend %heading;
+  font-size: var(--h4-font-size);
 }
 
 h5 {
-    @extend %heading;
-   font-size: var(--h5-font-size);
+  @extend %heading;
+  font-size: var(--h5-font-size);
 }
 
 h6 {
-    @extend %heading;
-   font-size: var(--h6-font-size);
+  @extend %heading;
+  font-size: var(--h6-font-size);
+}
+
+// Обнуляем вертикальные внешние отступы параграфа,
+// объявляем локальную переменную для внешнего отступа вниз,
+// чтобы избежать взаимодействие с более сложным селектором 
+p {
+  --paragraphMarginBottom: #{$PARAGRAPH_MARGIN_BOTTOM};
+
+  @extend %margin-block-0;
+
+  // Внешний отступ вниз для параграфа без атрибута class,
+  // который расположен не последним среди своих соседних элементов 
+  &:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+  }
 }
 
 
@@ -128,8 +129,7 @@ h6 {
 
 // Убираем внешние отступы вертикали нужным тегам,
 // у которых есть атрибут class
-:where(
-  p,
+:where(p,
   ul,
   ol,
   dl):where([class]) {
@@ -155,22 +155,6 @@ h6 {
 
 :where(address[class]) {
   font-style: normal;
-}
-
-
-// Обнуляем вертикальные внешние отступы параграфа,
-// объявляем локальную переменную для внешнего отступа вниз,
-// чтобы избежать взаимодействие с более сложным селектором 
-p {
-  --paragraphMarginBottom: #{$PARAGRAPH_MARGIN_BOTTOM};
-
-  @extend %margin-block-0;
-
-  // Внешний отступ вниз для параграфа без атрибута class,
-  // который расположен не последним среди своих соседних элементов 
-  &:where(:not([class]):not(:last-child)) {
-    margin-bottom: var(--paragraphMarginBottom);
-  }
 }
 
 
