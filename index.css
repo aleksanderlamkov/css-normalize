@@ -155,9 +155,11 @@ label {
 
 /**
   Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill / stroke со значением 'none')
  */
-[fill] { fill: currentColor }
-[stroke] { stroke: currentColor }
+:where([fill]:not([fill="none"])) { fill: currentColor }
+:where([stroke]:not([stroke="none"])) { stroke: currentColor }
 
 /**
   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
