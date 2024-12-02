@@ -1,3 +1,16 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 body, p, :where(p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, figure):where([class]) {
   margin-block: 0;
 }
@@ -10,8 +23,7 @@ html, :has(:target) {
   scroll-behavior: smooth;
 }
 
-img,
-video, svg {
+img, video, svg {
   display: block;
   max-width: 100%;
   height: auto;
@@ -22,47 +34,51 @@ video, svg {
   --body-bg-color: #fefefe;
   --body-font-family: "Onest", sans-serif;
   --body-font-weight: 400;
-  --body-font-size:1rem;
+  --body-font-size: 1rem;
   --body-line-height: 1.5;
   --heading-font-family: "Druk-Cyr", sans-serif;
   --heading-font-weight: 900;
   --heading-line-height: 1.2;
-  --h1-font-size:clamp(2.5rem, 1.667rem + 3.71vw, 5rem);
-  --h2-font-size:clamp(1.5rem, 1rem + 2.23vw, 3rem);
-  --h3-font-size:clamp(1.125rem, 1rem + 0.56vw, 1.5rem);
-  --h4-font-size:1.5rem;
-  --h5-font-size:1.25rem;
-  --h6-font-size:1rem;
-  --paragraphMarginBottom:1.5rem;
-}
-
-html,
-body {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+  --h1-font-size: clamp(2.5rem, 1.667rem + 3.71vw, 5rem);
+  --h2-font-size: clamp(1.5rem, 1rem + 2.23vw, 3rem);
+  --h3-font-size: clamp(1.125rem, 1rem + 0.56vw, 1.5rem);
+  --h4-font-size: clamp(1.125rem, 1.084rem + 0.19vw, 1.25rem);
+  --h5-font-size: clamp(1rem, 0.959rem + 0.19vw, 1.125rem);
+  --h6-font-size: 1rem;
+  --paragraphMarginBottom: 1.5rem;
 }
 
 html {
+  height: 100%;
+  box-sizing: border-box;
   scrollbar-gutter: stable;
 }
 
 body {
+  max-height: 100%;
+  box-sizing: border-box;
   background-color: var(--body-bg-color);
   color: var(--body-text-color);
-  font-family: var(--body-font-family);
+  font-family: var(--body-font-family), sans-serif;
   font-weight: var(--body-font-weight);
   font-size: var(--body-font-size);
   line-height: var(--body-line-height);
 }
 
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 h6, h5, h4, h3, h2, h1 {
-  font-family: var(--heading-font-family);
+  font-family: var(--heading-font-family), sans-serif;
   font-weight: var(--heading-font-weight);
   line-height: var(--heading-line-height);
 }
@@ -138,8 +154,7 @@ a:where([class]) {
   display: inline-flex;
 }
 
-button,
-label {
+button, label {
   cursor: pointer;
 }
 
@@ -148,20 +163,12 @@ label {
   border-color: currentColor;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
 /*  buttons */
 /* header */
 /*  footer  */
 /*   _shame.scss */
 body {
   background-color: red;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

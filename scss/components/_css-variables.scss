@@ -6,7 +6,7 @@
   --body-bg-color: #fefefe;
   --body-font-family: 'Onest', sans-serif;
   --body-font-weight: 400;
-  --body-font-size:#{index.toRem(16)};
+  --body-font-size: #{index.toRem(16)};
   --body-line-height: 1.5;
 
   //Общиестилидлявсехзаголовков
@@ -15,16 +15,16 @@
   --heading-line-height: 1.2;
 
   //Размерызаголовковh1-h6
-  --h1-font-size:#{index.clamp1(40,80)};
-  --h2-font-size:#{index.clamp1(24,48)};
-  --h3-font-size:#{index.clamp1(18,24)};
-  --h4-font-size:#{index.toRem(24)};
-  --h5-font-size:#{index.toRem(20)};
-  --h6-font-size:#{index.toRem(16)};
+  --h1-font-size: #{index.clamp1(40,80)};
+  --h2-font-size: #{index.clamp1(24,48)};
+  --h3-font-size: #{index.clamp1(18,24)};
+  --h4-font-size: #{index.clamp1(18,20)};
+  --h5-font-size: #{index.clamp1(16,18)};
+  --h6-font-size: #{index.toRem(16)};
 
   //Внешнийотступвниздляпараграфабезатрибутаclass,
   //которыйрасположеннепоследнимсредисвоихсоседнихэлементов
-  --paragraphMarginBottom:#{index.toRem(index.$PARAGRAPH_MARGIN_BOTTOM)};
+  --paragraphMarginBottom: #{index.toRem(index.$PARAGRAPH_MARGIN_BOTTOM)};
 }
 
 :root {
