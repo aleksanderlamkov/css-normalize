@@ -1,19 +1,10 @@
 
-// @use 'abstracts/functions' as *;
-// @use 'abstracts/variables' as *;
-// @use 'abstracts/mixins' as *;
-
-// @use 'abstracts/placeholders' as *;
-// @use 'abstracts/css-variables' as *;
-// @use 'abstracts/normalize' as *;
-// @use 'abstracts/forwarded';
 @use './components/css-variables';
 @use './components/normalize';
+@use 'components/buttons';
 
-@use 'components/buttons' as *;
-
-@use 'layout/header' as *;
-@use 'layout/footer' as *;
+@use 'layout/header';
+@use 'layout/footer';
 
 // Файл для эксперементов и костылей
-@use 'components/shame' as *;
+@use 'components/shame';
