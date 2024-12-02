@@ -1,15 +1,19 @@
-@import
-    'abstracts/functions',
-    'abstracts/mixins',
-    'abstracts/variables',
-    'abstracts/placeholders',
-    'abstracts/normalize';
 
-@import 'components/buttons';
+// @use 'abstracts/functions' as *;
+// @use 'abstracts/variables' as *;
+// @use 'abstracts/mixins' as *;
 
-@import
-    'layout/header',
-    'layout/footer';
+// @use 'abstracts/placeholders' as *;
+// @use 'abstracts/css-variables' as *;
+// @use 'abstracts/normalize' as *;
+// @use 'abstracts/forwarded';
+@use './components/css-variables';
+@use './components/normalize';
+
+@use 'components/buttons' as *;
+
+@use 'layout/header' as *;
+@use 'layout/footer' as *;
 
 // Файл для эксперементов и костылей
-@import 'components/shame';
+@use 'components/shame' as *;

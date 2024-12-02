@@ -1,10 +1,15 @@
+@use "sass:meta";
 @use 'sass:math';
+
+@use "variables" ;
+
+
 
 
 // Удаление едениц измерения
 
 @function strip-units($number) {
-  @if type-of($number)=='number' and not unitless($number) {
+  @if meta.type-of($number)=='number' and not math.is-unitless($number) {
     @return math.div($number, $number * 0 + 1);
   }
 
@@ -20,7 +25,8 @@
 // преобразоваание PX в REM
 @function toRem($pixel) {
   @if math.is-unitless($pixel) {
-    @return #{rounding(math.div($pixel, $BASE_FONT_SIZE), 1000)}rem;
+    //@return #{rounding(math.div($pixel, variables.16), 1000)}rem;
+    @return #{rounding(math.div($pixel,  16), 1000)}rem;
   }
 
   @else {
@@ -29,8 +35,10 @@
 }
 
 @function clamp1($min, $max) {
-  $slope: math.div($max - $min, $VIEWPORT-MAX - $VIEWPORT-MIN);
-  $yAxisIntersection:  math.div(-$VIEWPORT-MIN * $slope + $min, $BASE_FONT_SIZE);
+ // $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
+//  $yAxisIntersection:  math.div(-(variables.$VIEWPORT-MIN) * $slope + $min, variables.16);
+  $slope: math.div($max - $min,  variables.$VIEWPORT-MAX -  variables.$VIEWPORT-MIN);
+  $yAxisIntersection:  math.div(-( variables.$VIEWPORT-MIN) * $slope + $min,  16);
 
   $clampMin: toRem($min);
   $clampVal: calc(#{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw);
@@ -41,7 +49,8 @@
 
 @function clamp2($min, $max) {
   $clampMin: toRem($min);
-  $clampVal: calc(math.div(strip-units($max), strip-units($VIEWPORT-MAX)) * 100);
+ //  $clampVal: calc(math.div(strip-units($max), strip-units(variables.$VIEWPORT-MAX)) * 100);
+  $clampVal: calc(math.div(strip-units($max), strip-units( variables.$VIEWPORT-MAX)) * 100);
   $clampMax: toRem($max);
 
   @return clamp($clampMin, #{rounding($clampVal)}vw, $clampMax);

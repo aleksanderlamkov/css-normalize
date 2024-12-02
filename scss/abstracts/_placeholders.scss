@@ -5,7 +5,24 @@
 %margin-inline-0 {
   margin-inline: 0;
 }
+%margin-0{
+  @extend %margin-block-0;
+  @extend %margin-inline-0;
+}
 
 %min-h100 {
   min-height: 100%;
+}
+
+// Плавный скролл
+%scroll-behavior {
+  scroll-behavior: smooth;
+}
+
+
+//  Упрощаем работу с изображениями
+%img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
