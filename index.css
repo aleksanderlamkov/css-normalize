@@ -156,10 +156,23 @@ label {
 /**
   Приводим к единому цвету svg-элементы
   (за исключением тех, у которых уже указан
-  атрибут fill / stroke со значением 'none')
+  атрибут fill со значением 'none' или начинается с 'url')
  */
-:where([fill]:not([fill="none"])) { fill: currentColor }
-:where([stroke]:not([stroke="none"])) { stroke: currentColor }
+:where([fill]:not(
+  [fill="none"],
+  [fill^="url"]
+)) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not([stroke="none"])) {
+  stroke: currentColor;
+}
 
 /**
   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
