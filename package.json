@@ -1,6 +1,6 @@
 {
   "name": "@a1rth/css-normalize",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Modern CSS normalize",
   "main": "index.css",
   "scripts": {
