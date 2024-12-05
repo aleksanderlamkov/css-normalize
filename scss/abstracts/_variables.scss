@@ -1,4 +1,7 @@
-// НЕ УДАЛЯТЬ используются в "functions.scss"
+
+@use "sass:color";
+
+// НЕ УДАЛЯТЬ используются в "_functions.scss" 
 // для расчета  toRem() и clamp1($min, $max) 
 $BASE_FONT_SIZE: 16;
 
@@ -7,4 +10,38 @@ $VIEWPORT-MIN: 360;
 
 // Внешний отступ вниз для параграфа без атрибута class,
 // который расположен не последним среди своих соседних элементов 
-$PARAGRAPH_MARGIN_BOTTOM: 24;
+$PARAGRAPH_MARGIN_BOTTOM: 16;
+
+
+// Базовые настройки для normalize.scss
+$body-text-color: #121212;
+$body-bg-color: #fefefe;
+$body-font-family: "Onest", sans-serif;
+$body-font-size: $BASE_FONT_SIZE; //16px
+$body-font-weight: 400;
+$body-line-height: 1.5;
+
+// Общие стили для всех заголовков
+$heading-font-family: 'Druk-Cyr', sans-serif;
+$heading-font-weight: 900;
+$heading-line-height: 1.2;
+$heading-margin-bottom: .8em;
+
+// Размеры заголовков h1-h6
+$h1-fs-max: 48;
+$h1-fs-min: 36;
+
+$h2-fs-max: 36;
+$h2-fs-min: 28;
+
+$h3-fs-max: 24;
+$h3-fs-min: 18;
+
+$h4-fs-max: 20;
+$h4-fs-min: 18;
+
+$h5-fs-max: 18;
+$h5-fs-min: 16;
+
+$h6-fs-max: 16;
+$h6-fs-min: 16;

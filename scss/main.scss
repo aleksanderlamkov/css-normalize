@@ -1,6 +1,7 @@
 
-@use './components/css-variables';
-@use './components/normalize';
+@use './abstracts/css-variables';
+@use './abstracts/normalize';
+
 @use 'components/buttons';
 
 @use 'layout/header';

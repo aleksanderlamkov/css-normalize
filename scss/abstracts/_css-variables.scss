@@ -1,0 +1,6 @@
+@use 'mixins';
+
+:root {
+  @include mixins.normalize-root
+  
+}

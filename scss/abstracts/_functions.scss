@@ -29,16 +29,19 @@
 }
 
 @function clamp1($min, $max) {
-  // $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
-  //  $yAxisIntersection:  math.div(-(variables.$VIEWPORT-MIN) * $slope + $min, variables.16);
-  $slope: math.div($max - $min, variables.$VIEWPORT-MAX -  variables.$VIEWPORT-MIN);
-  $yAxisIntersection: math.div(-( variables.$VIEWPORT-MIN) * $slope + $min, 16);
+  @if $min ==$max {
+    @return toRem($max);
+  }
+  @else {
+    $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
+    $yAxisIntersection: math.div(-(variables.$VIEWPORT-MIN) * $slope + $min, variables.$BASE_FONT_SIZE);
 
-  $clampMin: toRem($min);
-  $clampVal: calc(#{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw);
-  $clampMax: toRem($max);
+    $clampMin: toRem($min);
+    $clampVal: calc(#{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw);
+    $clampMax: toRem($max);
 
-  @return clamp($clampMin, $clampVal, $clampMax);
+    @return clamp($clampMin, $clampVal, $clampMax);
+  }
 }
 
 @function clamp2($min, $max) {

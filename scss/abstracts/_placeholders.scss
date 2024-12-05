@@ -1,4 +1,6 @@
-.visually-hidden {
+
+// Скрываем элемент
+%visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -9,6 +11,12 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+// Общие стили для всех заголовков
+%heading {
+  font-family: var(--heading-font-family), sans-serif;
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
 }
 
 %margin-block-0 {
