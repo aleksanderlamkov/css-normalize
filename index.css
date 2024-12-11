@@ -170,7 +170,10 @@ label {
   (за исключением тех, у которых уже указан
   атрибут stroke со значением 'none')
  */
-:where([stroke]:not([stroke="none"])) {
+:where([stroke]:not(
+  [stroke="none"],
+  [stroke^="url"]
+)) {
   stroke: currentColor;
 }
 
