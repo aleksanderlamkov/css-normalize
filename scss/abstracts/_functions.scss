@@ -1,7 +1,7 @@
 @use "sass:meta";
 @use 'sass:math';
 
-@use "variables";
+@use "../variables";
 
 // Удаление едениц измерения
 @function strip-units($number) {
