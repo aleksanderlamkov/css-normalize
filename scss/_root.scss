@@ -25,5 +25,5 @@
     --h5-font-size: #{functions.clamp1(variables.$h5-fs-min, variables.$h5-fs-max)};
     --h6-font-size: #{functions.clamp1(variables.$h6-fs-min, variables.$h6-fs-max)};
 
-    --font-sans-serif:  "Segoe UI", Roboto, "Helvetica Neue",  "Noto Sans", "Liberation Sans", sans-serif;
+    --font-sans-serif:  "Segoe UI", "Roboto", "Helvetica Neue",  "Noto Sans", "Liberation Sans", sans-serif;
   }

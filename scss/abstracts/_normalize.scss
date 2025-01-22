@@ -4,23 +4,14 @@
 
 
 html {
-  @extend %scroll-behavior ;
-
-  // Нормализация блочной модели
-  // height: 100%;
-  box-sizing: border-box;
-
-  // Убираем скачок интерфейса по горизонтали
-  // при появлении / исчезновении скроллбара
-  // scrollbar-gutter: stable;
+  @extend %scroll-behavior;
+  @extend %border-box;
 }
 
 body {
   @extend %margin-block-0 !optional;
   @extend %margin-inline-0 !optional;
-
-  // Нормализация блочной модели
-  box-sizing: border-box;
+  @extend %border-box;
 
   // Унифицированны размеры и цвета
   min-height: 100dvh;
@@ -32,8 +23,10 @@ body {
   line-height: var(--body-line-height);
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
+*,
+*::before,
+*::after {
+  @extend %border-box;
 
   @media (prefers-reduced-motion: reduce) {
 
@@ -51,7 +44,6 @@ h1 {
   @extend %heading;
 
   font-size: var(--h1-font-size);
-
 }
 
 h2 {
@@ -90,6 +82,7 @@ h6 {
 p {
   @extend %margin-block-0 !optional;
   --paragraphMarginBottom: #{functions.toRem(variables.$PARAGRAPH_MARGIN_BOTTOM)};
+
   // Внешний отступ вниз для параграфа без атрибута class,
   // который расположен не последним среди своих соседних элементов
   &:where(:not([class]):not(:last-child)) {
@@ -136,7 +129,8 @@ p {
 }
 
 // Упрощаем работу с изображениями и видео
-img, video {
+img,
+video {
   @extend %img;
 }
 
@@ -147,15 +141,26 @@ svg {
   * {
     transition-property: fill, stroke;
   }
+}
 
-  // Приводим к единому цвету svg-элементы
-  [fill] {
-    fill: currentColor
-  }
 
-  [stroke] {
-    stroke: currentColor
-  }
+// Приводим к единому цвету svg-элементы
+// (за исключением тех, у которых уже указан
+// атрибут fill со значением 'none' или начинается с 'url')
+
+:where([fill]:not([fill="none"],
+    [fill^="url"])) {
+  fill: currentColor;
+}
+
+
+// Приводим к единому цвету svg-элементы
+// (за исключением тех, у которых уже указан
+// атрибут stroke со значением 'none')
+
+:where([stroke]:not([stroke="none"],
+    [stroke^="url"])) {
+  stroke: currentColor;
 }
 
 // Наследуем свойства шрифт для полей ввода
@@ -172,7 +177,8 @@ a:where([class]) {
 }
 
 // Курсор-рука при наведении на элемент
-button, label {
+button,
+label {
   cursor: pointer;
 }
 

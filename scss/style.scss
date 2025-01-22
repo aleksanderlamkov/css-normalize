@@ -1,8 +1,15 @@
+/**
+  *
+  * На основе
+  * css-normalize от Aleksander Lamkov 
+  * https://github.com/aleksanderlamkov/css-normalize
+  *
+ */
+
 @use 'root';
 @use 'abstracts/normalize';
 
 @use 'components/buttons';
-
 
 @use 'layout/basicLayouts/01-page' as page;
 @use 'layout/basicLayouts/02-header' as header;

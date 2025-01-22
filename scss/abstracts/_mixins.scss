@@ -2,10 +2,18 @@
 @use '../variables';
 @use 'functions';
 
-@mixin grid( $columns: 12, $gap: null) {
-    --columnsNumber: #{$columns};
+@mixin grid($columns: 12, $gap: null) {
+  --columnsNumber: #{$columns};
 
-    display: grid;
-    gap: $gap;
-    grid-template-columns: repeat(var(--columnsNumber), 1fr);
-  }
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(var(--columnsNumber), 1fr);
+}
+
+@mixin flex($align: null, $justify: null, $direction: null, $wrap: null) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}

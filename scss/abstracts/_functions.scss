@@ -3,50 +3,50 @@
 
 @use "../variables";
 
-// Удаление едениц измерения
+// Удаление единиц измерения
 @function strip-units($number) {
-  @if meta.type-of($number)=='number' and not math.is-unitless($number) {
-    @return math.div($number, $number * 0 + 1);
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
+    @return math.div($number, 1); // Эффективное удаление единиц измерения
   }
-
   @return $number;
 }
 
 // Округление
 @function rounding($value, $exp: 100) {
-  @return math.div(math.ceil(calc($value * $exp)), $exp);
+  @return math.div(math.round($value * $exp), $exp); // Используем math.round для точности
 }
 
-
-// преобразоваание PX в REM
+// Преобразование PX в REM
 @function toRem($pixel) {
   @if math.is-unitless($pixel) {
-    //@return #{rounding(math.div($pixel, variables.16), 1000)}rem;
-    @return #{rounding(math.div($pixel,  16), 1000)}rem;
+    @return #{rounding(math.div($pixel, variables.$BASE_FONT_SIZE), 1000)}rem; // Используем $BASE_FONT_SIZE: 16; в качестве базового значения
   } @else {
-    @error 'Не используйте единицы измерения при работе с функцией toRem()! Передавайте аргументом только числа.'
+    @error 'Не используйте единицы измерения при работе с функцией toRem()! Передавайте аргументом только числа.';
   }
 }
 
+ 
 @function clamp1($min, $max) {
-  @if $min ==$max {
-    @return toRem($max);
+  @if $min == $max {
+    @return toRem($max); // Если минимальное значение равно максимальному, возвращаем единицу в rem
   }
-  @else {
-    $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
-    $yAxisIntersection: math.div(-(variables.$VIEWPORT-MIN) * $slope + $min, variables.$BASE_FONT_SIZE);
 
-    $clampMin: toRem($min);
-    $clampVal: calc(#{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw);
-    $clampMax: toRem($max);
+  // Вычисляем коэффициент для масштаба
+  $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
+  $yAxisIntersection: math.div(-(variables.$VIEWPORT-MIN) * $slope + $min, variables.$BASE_FONT_SIZE);
 
-    @return clamp($clampMin, $clampVal, $clampMax);
-  }
+  // Возвращаем результат с использованием clamp
+  $clampMin: toRem($min);
+  $clampMax: toRem($max);
+  $clampVal: calc(#{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw);
+  
+  @return clamp($clampMin, $clampVal, $clampMax);
 }
 
+ 
 @function clamp2($min, $max) {
+  // Возвращаем результат с использованием clamp
   $clampMin: toRem($min);
-  //  $clampVal: calc(math.div(strip-units($max), strip-units(variables.$VIEWPORT-MAX)) * 100);
   $clampVal: calc(math.div(strip-units($max), strip-units(variables.$VIEWPORT-MAX)) * 100);
   $clampMax: toRem($max);
 

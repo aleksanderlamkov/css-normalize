@@ -3,4 +3,7 @@
 
 @use "../../abstracts" as *;
 
-/*  footer  */
+//***************  FOOTER  **************/
+footer{
+    font-size: clamp2(16, 20);
+}
