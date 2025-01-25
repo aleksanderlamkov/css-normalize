@@ -15,7 +15,9 @@
 @function rounding($value, $exp: 100) {
   @return math.div(math.round($value * $exp), $exp); // Используем math.round для точности
 }
-
+@function rounding($value, $exp: 100) {
+  @return math.div(math.round($value * $exp), $exp);
+}
 // Преобразование PX в REM
 @function toRem($pixel) {
   @if math.is-unitless($pixel) {
@@ -45,6 +47,9 @@
 
  
 @function clamp2($min, $max) {
+  @if $min == $max {
+    @return toRem($max); // Если минимальное значение равно максимальному, возвращаем единицу в rem
+  }
   // Возвращаем результат с использованием clamp
   $clampMin: toRem($min);
   $clampVal: calc(math.div(strip-units($max), strip-units(variables.$VIEWPORT-MAX)) * 100);

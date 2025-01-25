@@ -1,6 +1,6 @@
-@use 'sass:math';
-@use '../variables';
-@use 'functions';
+@use "sass:math";
+@use "../variables";
+@use "functions";
 
 @mixin grid($columns: 12, $gap: null) {
   --columnsNumber: #{$columns};
@@ -16,4 +16,13 @@
   flex-wrap: $wrap;
   justify-content: $justify;
   align-items: $align;
+}
+
+@mixin abs-center($width: null, $height: null) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $width;
+  height: $height;
 }

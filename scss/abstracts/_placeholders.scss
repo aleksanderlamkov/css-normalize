@@ -4,12 +4,29 @@
   width: 1px;
   height: 1px;
   margin: -1px;
-  border: 0;
   padding: 0;
+  border: 0;
   white-space: nowrap;
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+  // Улучшенные стили для фокуса и активности
+  &:not(:focus):not(:active) {
+    position: absolute !important;
+  }
+}
+
+// Отображаем элемент при фокусе или активности
+%visually-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  white-space: normal;
+  clip: auto;
+  overflow: visible;
 }
 
 // Общие стили для всех заголовков
@@ -41,11 +58,15 @@
   scroll-behavior: smooth;
 }
 
-//  Упрощаем работу с изображениями
+// Упрощаем работу с изображениями
 %img {
   display: block;
   max-width: 100%;
   height: auto;
+  // Поддержка lazy loading
+  &[loading="lazy"] {
+    transition: opacity 0.3s;
+  }
 }
 
 // Нормализация блочной модели

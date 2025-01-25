@@ -2,7 +2,6 @@
 @use '../variables';
 @use 'functions';
 
-
 html {
   @extend %scroll-behavior;
   @extend %border-box;
@@ -29,50 +28,42 @@ body {
   @extend %border-box;
 
   @media (prefers-reduced-motion: reduce) {
-
     // Удаляем все анимации и переходы для людей,
     // которые предпочитают их не использовать
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-
   }
 }
 
 h1 {
   @extend %heading;
-
   font-size: var(--h1-font-size);
 }
 
 h2 {
   @extend %heading;
-
   font-size: var(--h2-font-size);
 }
 
 h3 {
   @extend %heading;
-
   font-size: var(--h3-font-size);
 }
 
 h4 {
   @extend %heading;
-
   font-size: var(--h4-font-size);
 }
 
 h5 {
   @extend %heading;
-
   font-size: var(--h5-font-size);
 }
 
 h6 {
   @extend %heading;
-
   font-size: var(--h6-font-size);
 }
 
@@ -99,7 +90,6 @@ p {
 // Убираем внешние отступы тегам у которых есть атрибут class
 :where(blockquote, figure):where([class]) {
   @extend %margin-inline-0 !optional;
-
 }
 
 // Убираем внешние отступы вертикали нужным тегам,
@@ -143,23 +133,17 @@ svg {
   }
 }
 
-
 // Приводим к единому цвету svg-элементы
 // (за исключением тех, у которых уже указан
 // атрибут fill со значением 'none' или начинается с 'url')
-
-:where([fill]:not([fill="none"],
-    [fill^="url"])) {
+:where([fill]:not([fill="none"], [fill^="url"])) {
   fill: currentColor;
 }
-
 
 // Приводим к единому цвету svg-элементы
 // (за исключением тех, у которых уже указан
 // атрибут stroke со значением 'none')
-
-:where([stroke]:not([stroke="none"],
-    [stroke^="url"])) {
+:where([stroke]:not([stroke="none"], [stroke^="url"])) {
   stroke: currentColor;
 }
 
