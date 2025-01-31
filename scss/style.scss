@@ -10,12 +10,12 @@
 @use 'abstracts/normalize';
 
 @use 'components/buttons';
+@use 'components/utils';
 
 @use 'layout/basicLayouts/01-page' as page;
 @use 'layout/basicLayouts/02-header' as header;
 @use 'layout/basicLayouts/03-main' as main;
 @use 'layout/basicLayouts/04-footer' as footer;
-
 
 // Файл для эксперементов и костылей
 @use 'shame';

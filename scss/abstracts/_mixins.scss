@@ -1,6 +1,6 @@
-@use "sass:math";
-@use "../variables";
-@use "functions";
+@use 'sass:math';
+@use '../variables';
+@use 'functions';
 
 @mixin grid($columns: 12, $gap: null) {
   --columnsNumber: #{$columns};

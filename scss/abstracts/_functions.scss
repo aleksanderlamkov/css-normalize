@@ -1,7 +1,7 @@
-@use "sass:meta";
+@use 'sass:meta';
 @use 'sass:math';
 
-@use "../variables";
+@use '../variables';
 
 // Удаление единиц измерения
 @function strip-units($number) {
@@ -27,7 +27,6 @@
   }
 }
 
- 
 @function clamp1($min, $max) {
   @if $min == $max {
     @return toRem($max); // Если минимальное значение равно максимальному, возвращаем единицу в rem
@@ -35,17 +34,21 @@
 
   // Вычисляем коэффициент для масштаба
   $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
-  $yAxisIntersection: math.div(-(variables.$VIEWPORT-MIN) * $slope + $min, variables.$BASE_FONT_SIZE);
+  $yAxisIntersection: math.div(
+    -(variables.$VIEWPORT-MIN) * $slope + $min,
+    variables.$BASE_FONT_SIZE
+  );
 
   // Возвращаем результат с использованием clamp
   $clampMin: toRem($min);
   $clampMax: toRem($max);
-  $clampVal: calc(#{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw);
-  
+  $clampVal: calc(
+    #{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw
+  );
+
   @return clamp($clampMin, $clampVal, $clampMax);
 }
 
- 
 @function clamp2($min, $max) {
   @if $min == $max {
     @return toRem($max); // Если минимальное значение равно максимальному, возвращаем единицу в rem

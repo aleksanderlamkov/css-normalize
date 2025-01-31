@@ -64,7 +64,7 @@
   max-width: 100%;
   height: auto;
   // Поддержка lazy loading
-  &[loading="lazy"] {
+  &[loading='lazy'] {
     transition: opacity 0.3s;
   }
 }

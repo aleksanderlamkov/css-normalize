@@ -1,7 +1,9 @@
-@use "sass:meta";
+@use 'sass:meta';
 @use 'sass:math';
 
-@use "../../abstracts" as *;
-
+@use '../../abstracts' as *;
 
 //***************  HEADER  **************/
+.header {
+  font-size: clamp2(16, 20);
+}

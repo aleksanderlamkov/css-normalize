@@ -1,0 +1,42 @@
+{
+  "php.validate.executablePath": "C:/path/to/php.exe", // Укажите путь к вашему PHP исполняемому файлу
+  "php.suggest.basic": false,
+  "intelephense.files.associations": ["*.php", "*.inc", "*.module", "*.theme", "*.twig", "*.html"],
+  "intelephense.environment.documentRoot": "/path/to/joomla/root", // Укажите корневую директорию Joomla
+  "intelephense.environment.includePaths": [
+    "/path/to/joomla/libraries",
+    "/path/to/joomla/components"
+  ],
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.associations": {
+    "*.html": "html",
+    "*.scss": "scss",
+    "*.js": "javascript",
+    "*.php": "php"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html",
+    "razor": "html",
+    "plaintext": "pug",
+    "scss": "css",
+    "php": "html"
+  },
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": true,
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+  "eslint.validate": ["javascript", "javascriptreact", "html"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.formatOnSave": true,      
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false
+}
