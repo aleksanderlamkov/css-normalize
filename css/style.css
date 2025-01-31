@@ -1,0 +1,200 @@
+@charset "UTF-8";
+/**
+  *
+  * На основе
+  * css-normalize от Aleksander Lamkov 
+  * https://github.com/aleksanderlamkov/css-normalize
+  *
+ */
+:root {
+  --container-width: 83.25rem;
+  --container-padding-x: 1rem;
+  --body-text-color: #121212;
+  --body-bg-color: #fefefe;
+  --body-font-family: "Onest";
+  --body-font-weight: 400;
+  --body-font-size: 1rem;
+  --body-line-height: 1.5;
+  --heading-font-family: "Druk-Cyr";
+  --heading-font-weight: 900;
+  --heading-line-height: 1.2;
+  --heading-margin-bottom: 0.8em;
+  --h1-font-size: clamp(2.25rem, 2rem + 1.11vw, 3rem);
+  --h2-font-size: clamp(1.75rem, 1.583rem + 0.74vw, 2.25rem);
+  --h3-font-size: clamp(1.125rem, 1rem + 0.56vw, 1.5rem);
+  --h4-font-size: clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem);
+  --h5-font-size: clamp(1rem, 0.958rem + 0.19vw, 1.125rem);
+  --h6-font-size: 1rem;
+  --font-sans-serif: "Segoe UI", "Roboto", "Helvetica Neue", "Noto Sans", "Liberation Sans",
+    sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
+}
+
+body, p, :where(p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, figure):where([class]) {
+  margin-block: 0;
+}
+
+body, :where(blockquote, figure):where([class]) {
+  margin-inline: 0;
+}
+
+html, :has(:target) {
+  scroll-behavior: smooth;
+}
+
+img,
+video, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+img[loading=lazy],
+video[loading=lazy], svg[loading=lazy] {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+html, body, *,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
+  font-family: var(--body-font-family), var(--font-sans-serif);
+  font-weight: var(--body-font-weight);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+p {
+  --paragraphMarginBottom: 1em;
+}
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+svg * {
+  -webkit-transition-property: fill, stroke;
+  transition-property: fill, stroke;
+}
+
+:where([fill]:not([fill=none], [fill^=url])) {
+  fill: currentColor;
+}
+
+:where([stroke]:not([stroke=none], [stroke^=url])) {
+  stroke: currentColor;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+a:where([class]) {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+button,
+label {
+  cursor: pointer;
+}
+
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.header {
+  font-size: clamp(1rem, 1.39vw, 1.25rem);
+}
+
+.footer {
+  font-size: clamp(1rem, 1.39vw, 1.25rem);
+}/*# sourceMappingURL=style.css.map */
