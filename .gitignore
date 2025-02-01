@@ -1,2 +1,5 @@
 .idea
 *.zip
+/node_modules
+/css/style.min.css
+*.map

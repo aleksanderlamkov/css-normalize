@@ -5,6 +5,16 @@
 
 //****************  PAGE  ****************/
 .page {
+  // Унифицированны размеры и цвета
+  min-height: 100dvh;
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
+  font-family: var(--body-font-family), var(--font-sans-serif);
+  font-weight: var(--body-font-weight);
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+
+  // Прибиваем футер к нижней части страницы
   display: grid;
   grid-template-rows: auto 1fr auto;
 }

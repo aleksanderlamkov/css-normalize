@@ -1,0 +1,37 @@
+{
+  "name": "scss-normalize",
+  "version": "1.0.0",
+  "description": "Normalize SCSS",
+  "main": "index.js",
+  "scripts": {
+    "sass": "echo 'Компиляция SCSS в CSS' && sass scss:css",
+    "watch:sass": "echo 'Отслеживание изменений в SCSS и компиляция в CSS' && sass --watch scss:css",
+    "combine-media-query": "echo 'Объединение медиазапросов без минификации' && postcss css/*.css --use postcss-combine-media-query -d css",
+    "build:css": "echo 'Объединение медиазапросов и минификация CSS' && postcss css/*.css --use postcss-combine-media-query cssnano -d css",
+    "watch": "npm-run-all --parallel watch:sass",
+    "build": "npm-run-all sass combine-media-query build:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilgiz87/scss-normalize.git"
+  },
+  "homepage": "https://github.com/ilgiz87/scss-normalize#readme",
+  "keywords": [
+    "scss",
+    "css",
+    "normalize",
+    "reset"
+  ],
+  "author": "ILGIZ KHUZHAHMETOV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilgiz87/scss-normalize/issues"
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.6",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^11.0.0",
+    "postcss-combine-media-query": "^1.0.1",
+    "sass": "^1.83.4"
+  }
+}
