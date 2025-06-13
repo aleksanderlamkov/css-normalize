@@ -80,7 +80,7 @@ p {
   Внешний отступ вниз для параграфа без атрибута class,
   который расположен не последним среди своих соседних элементов
  */
-p:where(:not([class]):not(:last-child)) {
+:where(p:not([class]):not(:last-child)) {
   margin-bottom: var(--paragraphMarginBottom);
 }
 
