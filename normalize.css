@@ -20,7 +20,7 @@
   у которых есть атрибут class
  */
 body,
-:where(blockquote, figure):where([class]) {
+:where(blockquote, figure, fieldset):where([class]) {
   margin: 0;
 }
 
@@ -48,7 +48,6 @@ body,
 }
 
 :where(fieldset[class]) {
-  margin-left: 0;
   padding: 0;
   border: none;
 }
@@ -121,8 +120,7 @@ html {
 /**
   Плавный скролл
  */
-html,
-:has(:target) {
+html {
   scroll-behavior: smooth;
 }
 

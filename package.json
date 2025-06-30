@@ -1,24 +1,50 @@
 {
   "name": "@a1rth/css-normalize",
-  "version": "1.1.9",
-  "description": "Modern CSS normalize",
-  "main": "index.css",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "1.2.0",
+  "description": "Modern CSS normalize for clean and consistent styling",
+  "keywords": [
+    "css",
+    "normalize",
+    "reset",
+    "modern",
+    "frontend",
+    "style",
+    "base"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Александр Ламков",
+    "url": "https://aleksanderlamkov.ru/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aleksanderlamkov/css-normalize.git"
   },
-  "keywords": [
-    "css",
-    "normalize",
-    "reset"
-  ],
-  "author": "Aleksander Lamkov (https://aleksanderlamkov.ru/)",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/aleksanderlamkov/css-normalize/issues"
   },
-  "homepage": "https://github.com/aleksanderlamkov/css-normalize#readme"
+  "homepage": "https://github.com/aleksanderlamkov/css-normalize#readme",
+
+  "files": [
+    "normalize.css",
+    "normalize.min.css"
+  ],
+  "style": "normalize.css",
+  "exports": {
+    ".": {
+      "style": "./normalize.css",
+      "default": "./normalize.css"
+    }
+  },
+
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0",
+    "build": "postcss normalize.css -o normalize.min.css",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.7",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1"
+  }
 }
