@@ -115,12 +115,9 @@ html {
     при появлении / исчезновении скроллбара
    */
   scrollbar-gutter: stable;
-}
-
-/**
-  Плавный скролл
- */
-html {
+  /**
+    Плавный скролл
+   */
   scroll-behavior: smooth;
 }
 
