@@ -23,9 +23,14 @@ pnpm add @a1rth/css-normalize
 
 ## Использование
 
-В CSS/SCSS-файле:
+В CSS-файле:
 ```css
 @import '@a1rth/css-normalize';
+```
+
+В SCSS-файле:
+```scss
+@use '@a1rth/css-normalize';
 ```
 
 В JavaScript:
