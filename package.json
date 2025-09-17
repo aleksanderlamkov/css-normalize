@@ -26,18 +26,20 @@
   "homepage": "https://github.com/aleksanderlamkov/css-normalize#readme",
   "files": [
     "normalize.css",
-    "normalize.min.css"
+    "normalize.min.css",
+    "normalize.scss"
   ],
   "style": "normalize.css",
   "exports": {
     ".": {
       "style": "./normalize.css",
+      "sass": "./normalize.scss",
       "default": "./normalize.css"
     }
   },
   "scripts": {
     "test": "echo \"No tests yet\" && exit 0",
-    "build": "postcss normalize.css -o normalize.min.css",
+    "build": "postcss normalize.css -o normalize.min.css && echo '@import \"./normalize.css\";' > normalize.scss",
     "prepare": "npm run build"
   },
   "devDependencies": {
